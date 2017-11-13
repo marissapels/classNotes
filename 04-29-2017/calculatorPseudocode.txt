@@ -1,0 +1,12 @@
+Calculator Pseudocode
+
+1. Assign data type to each button
+2. on click events to display 
+	add clicked number to string
+	parse string
+3. operator function
+	switch case by case
+	if/else 
+4. display results	
+	push results to defined IDs
+5. Clear

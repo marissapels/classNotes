@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>API and AJAX Practice</title>
+		<style type="text/css">
+			form, input, button, div {
+				margin:10px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Marissa's Movie Search</h1>
+
+		<div id="button-section"></div><br>
+
+		<form>
+			<label for="movie-input">Add a movie!</label>
+			<input type="text" id="movie-input"><br>
+			<input type="submit" id="submit-button">
+		</form>
+
+		<div id="movie-section"></div>
+
+		<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+		<script type="text/javascript">
+
+		var movieList = ["Forrest Gump", "The Lion King", "Finding Nemo", "The Princess Bride"];
+
+		$("#submit-button").on("click", function(){
+			event.preventDefault();
+			var newMovie = $("#movie-input").val().trim()
+			movieList.push(newMovie);
+			createButtons();
+		});
+
+		function createButtons(){
+			$("#button-section").empty();
+			for (var i=0; i<movieList.length; i++){
+					var newButton=$("<button>" + movieList[i]+"</button>");
+					newButton.data("type", movieList[i]);
+					newButton.addClass("movie");
+					$("#button-section").append(newButton);
+			}
+		}
+
+		function displayMovie(){
+			$("#movie-section").empty();
+			var movie=$(this).data("type");
+			var queryURL="http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&r=json";
+
+			$.ajax({
+				url: queryURL,
+				method: "GET"
+			}).done(function(response){
+				var title=$("<h2>" + response.Title + "</h2>");
+				var year=$("<div>" + response.Year + "</div>");
+				var plot=$("<div>" + response.Plot + "</div>");
+				var poster=$("<img>").attr("src",response.Poster);
+				$("#movie-section").append(title);
+				$("#movie-section").append(year);
+				$("#movie-section").append(plot);
+				$("#movie-section").append(poster);
+			})
+		}
+		$(document).on("click", ".movie", displayMovie);
+
+		createButtons();
+
+		</script>
+
+	</body>
+</html>

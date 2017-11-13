@@ -1,0 +1,38 @@
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <ul style="list-">
+        <li><a href="http://swapi.co/" target="_blank">How to use the API</a></li>
+        <li><a href="http://swapi.co/api/people/" target="_blank">The JSON returned</a></li>
+        <li><a href="http://stackoverflow.com/questions/3709597/wait-until-all-jquery-ajax-requests-are-done" target="_blank">Learn how to enforce waiting for the api call to finish</a></li>
+    <script>
+        var peopleEndpoint = "http://swapi.co/api/people/";
+
+        // using jquery 'when' chained with 'done' waits until all asynchronous functions passed to 'when' are done.
+        // in this example, we only passed 1 function to 'when', so it just waits until star_wars_ajax() is done
+        $.when(star_wars_ajax()).done(function(response) {
+            var results = response.results;
+            var lukeDetails = results[0];
+            alert("It worked: your hero is " + lukeDetails.name);
+            console.log("Visit " + peopleEndpoint + " and compare the 'count' you see there to our 'response.count'");
+            console.log("response.count: " + response.count);
+        });
+
+        function star_wars_ajax() {
+            return $.ajax({
+                url: peopleEndpoint,
+                success: function() {
+                    console.log("api call worked (this actually prints before the alert)");
+                },
+                error: function() {
+                    console.log("api call failed");
+                }
+            });
+
+        }
+    </script>
+</body>

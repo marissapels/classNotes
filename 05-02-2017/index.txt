@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Crystals Collector</title>
+	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat|Ribeye" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+	<h1> Crystals Collector</h1>
+
+	<div class=container>
+		<div class="row">
+			<div class="col-md-12">
+				<section class="instructions">
+					<p> You will be given a random number at the start of the game. </p>
+					<p>  There are four crystals below. By clicking on a crystal, you will ad a specific amount of points to your total score.</p>
+					<p> You win the game by matching your total score to the random number. You lose the game if you total score goes above the random number. </p>
+					<p> The value of each crystal is hidden from you until you click on it. </p>
+					<p> When you start a new game, the values of each crystal will change. </p>
+				</section>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 numbers">
+				<div class="randomSection">
+					<h2> Random Number: </h2>
+					<p id="randomNumber">0</p>
+				</div>
+				<div class="scoreSection">
+					<h2> Your Score: </h2>
+					<p id="userScore">0</p>
+				</div>
+			</div>
+			<div class="col-md-6 winsLosses">
+				<h2>Wins: </h2>
+				<span id="wins">test </span>
+				<h2>Losses: </h2>
+				<span id="losses">test </span>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<section class="crystalImages">
+					<button id="button1" class="button"><img src="assets/images/gem1.jpg" alt="gem"></button>
+					<button id="button2" class="button"><img src="assets/images/gem2.jpg" alt="gem"></button>
+					<button id="button3" class="button"><img src="assets/images/gem3.jpg" alt="gem"></button>
+					<button id="button4" class="button"><img src="assets/images/gem4.jpg" alt="gem"></button>
+				</section>
+			</div>
+		</div>
+	</div>s
+
+	<script type="text/javascript" src="assets/javascript/game.js"></script>
+</body>
+</html>

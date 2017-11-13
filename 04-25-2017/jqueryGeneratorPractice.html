@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<title> jQuery Practice </title>
+	</head>
+	<body>
+		<div id=originalDiv> I'm the original div!!</div>
+
+		<script type="text/javascript">
+			$("#originalDiv").html("I changed the original div");
+			var div1 = $("<div>");
+			div1.addClass("div1class");
+			div1.html("I'm div 1!");
+			$("#originalDiv").append(div1);
+			var div2=$("<div>");
+			div2.attr("class","div2class");
+			div2.html("I'm div 2!!");
+			$(".div1class").append(div2);
+		</script>
+	</body>
+</html>

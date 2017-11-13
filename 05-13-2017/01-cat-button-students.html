@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>The Magical Cat Button</title>
+</head>
+
+<body>
+  <button id="cat-button">magical cat button</button>
+  <div id="images">
+  </div>
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript">
+    //when the button is clicked, execute function
+    $("#cat-button").on("click", function() {
+
+      //storing URL to giphy API in variable
+      var queryURL = "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=cats";
+
+      //AJAX parameters that get data from the specified URL. Executes AJAX request
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+
+      //when the data has been retrieved, do THIS. You may see this as .then in other promise libraries. .done is for jQuery
+      .done(function(response) {
+
+        //create variable for image URL
+        var imageUrl = response.data.image_original_url;
+
+        //creates a new variable as an image tag
+        var catImage = $("<img>");
+
+        //adds the URL to the variable, adds alt to cat image
+        catImage.attr("src", imageUrl);
+        catImage.attr("alt", "cat image");
+
+        //adds the new cat image to the HTML
+        $("#images").prepend(catImage);
+      });
+    });
+  </script>
+</body>
+
+</html>

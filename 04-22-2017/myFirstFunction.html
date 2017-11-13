@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>My First Function</title>
+  </head>
+  <body>
+
+    <h1>Open the console to see the magic!</h1>
+    
+    <script>
+
+      // FUNCTIONS
+      // ================================================================================
+
+      // Creates a Function called "adder" that take three arguments (x, y, z).
+      // The function should add the arguments together, and log the result to the console.
+
+      function adder (x, y, z){
+        console.log(x+y+z);
+      }
+
+
+      // Creates a Function called "multiplier" that takes three arguments (x, y, z).
+      // The function should multiply the arguments, and log the result to the console.
+
+      function multiplier (x, y, z){
+        console.log(x*y*z);
+      }
+
+
+      // Creates a Function called "isString" that takes three arguments (x, y, z).
+      // "isString" determines if all three arguments are strings and logs an appropriate response to the console.
+
+      function isString (x, y, z){
+        if (typeof x==="string" && typeof y==="string" && typeof z==="string"){
+          console.log("Arguments are strings!!");
+        }
+        else
+          console.log("Arguments are NOT strings");
+      }
+      
+
+
+
+      // Creates a Function called "vowelChecker" that takes in a single argument (x).
+      // "vowlChecker" logs whether or not the input is a vowel.
+
+      function vowelChecker(x){
+        if (x==="a" || x==="e"||x==="i"||x==="o"||x==="u") {
+          console.log("It's a vowel!!");
+        }
+        else {
+          console.log("It is NOT a vowel");
+        }
+      }
+
+      //How to check to see if word STARTS with a vowel
+      function wordVowelChecker(x){
+        var firstChar=x.toLowerCase().charAt(0);
+        var vowels="aeiou";
+        if (vowels.indexOf(firstChar)>-1){ //any first letter of the input that is not a vowel (not in the vowels variable), it will be assigned a value of -1
+          console.log("The first letter is a vowel!");
+        }
+        else {
+          console.log("The first letter is not a vowel");
+        }
+      }
+      //for homework, you could add a for loop in order to go through each character in the word to check for a value
+
+
+      // BONUS
+      // Creates a version of "adder" that returns its result. Function is called "adderReturn".
+
+        function adderReturn (x, y, z){
+        return(x+y+z);
+      }
+
+
+
+      // Creates a version of "multiplier" that returns its result. Function is called "multiplierReturn".
+
+        function multiplierReturn (x, y, z){
+        return(x*y*z);
+      }
+
+
+
+
+      // FUNCTION EXECUTION
+      // ================================================================================
+
+      // Add in the lines of code below necessary to call the functions we created above.
+
+
+      // Call the adder function here.
+      adder(1, 2, 3);
+      console.log("-------------------");
+
+
+      // Call the multiplier function here.
+
+      multiplier(2, 4, 6);
+      console.log("-------------------");
+
+
+      // Call the isString function here.
+
+      isString("dog", "cat", "fish");
+      console.log("-------------------");
+
+
+      // Call the vowelChecker function here.
+
+      vowelChecker ("e");
+      console.log("-------------------");      
+
+
+      wordVowelChecker("test");
+      // BONUS
+      // Call the adderReturn function here and set it equal to a variable. Then log that variable to the console.
+
+      adderReturn (1, 2, 3);
+      console.log(adderReturn(1, 2, 3));
+
+
+      // Call the multiplierReturn function here and set it equal to a variable. Then log that variable to the console.
+
+      multiplierReturn(4, 5, 6);
+      console.log(multiplierReturn(4, 5, 6));
+
+    </script>
+
+  </body>
+</html>

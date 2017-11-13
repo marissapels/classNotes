@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<title>Local Storage To-Do List</title>
+</head>
+<body>
+	<h1>To-Do List Persisted with Local Storage</h1>
+
+	<form>
+		<input type="text">
+		<input type="submit" value="save">
+	</form>
+
+	<div id="todo-list"></div>
+
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+  <script type="text/javascript">
+
+  var itemsList=JSON.parse(localStorage.getItem("todolist"));
+
+  	function displayList(){
+  		$("#todo-list").empty();
+  		if(!Array.isArray(itemsList)){
+  			itemsList=[];
+  		}
+
+	  	for (var i=0; i<itemsList.length; i++){
+	  		var item=$("<p>").text(itemsList[i]);
+	  		var button=$("<button>");
+	  		button.text("X")
+	  		button.addClass("delete");
+	  		button.attr("data-index", i);
+	  		item.prepend(button);
+	  		$("#todo-list").append(item);
+	  	}
+	}
+
+  	displayList();
+
+  	$(document).on("click", ".delete", function(){
+  		var currentIndex=$(this).attr("data-index");
+  		itemsList.splice(currentIndex,1);
+  		localStorage.setItem("todolist", JSON.stringify(itemsList));
+  		displayList();
+  	})
+
+  	$("input[type='submit']").on("click", function(event){
+  		event.preventDefault();
+  		var userInput=$("input[type='text']").val();
+  		$("input[type='text']").val("");
+  		itemsList.push(userInput);
+  		localStorage.setItem("todolist", JSON.stringify(itemsList));
+  		displayList();
+  	});
+
+  </script>
+
+</body>
+</html>

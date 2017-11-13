@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors Part 2</title>
+  </head>
+  <body>
+
+    <div id="game">
+    	<p> Press r, p, or s to start playing! </p>
+    </div>
+
+    <script type="text/javascript">
+
+      // Creates an array that lists out all of the options (Rock, Paper, or Scissors).
+      var options = ["r", "p", "s"];
+
+      var wins = 0;
+      var losses = 0;
+      var ties =0;
+
+      document.onkeyup = function(event) {
+         var userGuess = event.key;
+         var computerGuess = options[Math.floor(Math.random() * options.length)];
+         alert("You chose: " + userGuess +"\n" + "Computer chose: " + computerGuess);
+
+var answer = {
+  r: {
+    p: losses++,
+    s: wins++,
+    r: ties++
+  },
+  s: {
+    p: wins++,
+    s: ties++,
+    r: losses++
+  },
+  p: {
+    p: ties++,
+    s: losses++,
+    r: wins++
+  }
+}
+
+console.log(answer.userGuess.computerGuess);
+
+
+            //HTML that will be injected into our div and displayed on the page.
+            var html = "<p>Press r, p, or s to start playing!!" +
+            "<p>Wins: " + wins + "</p>" +
+            "<p>Losses: " + losses + "</p>" +
+            "<p>Ties: " + ties + "</p>"
+
+            // Injecting the HTML we just created into our div and updating the game information on our page.
+            document.querySelector("#game").innerHTML = html;
+
+         }
+
+      }
+
+    </script>
+
+  </body>
+</html>

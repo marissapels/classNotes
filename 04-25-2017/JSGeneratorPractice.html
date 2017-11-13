@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>JavaScript Generator Practice</title>
+	</head>
+	<body>
+
+		<div id="original">Original</div>
+		<script type="text/javascript">
+			var div1 = document.createElement("div");
+			div1.innerHTML="I'm the first div!";
+			var originalDiv=document.getElementById("original");
+			originalDiv.appendChild(div1);
+			var div2 = document.createElement("div");
+			div2.innerHTML="I'm the second div!";
+			div1.appendChild(div2);
+
+		</script>
+	</body>
+</html>

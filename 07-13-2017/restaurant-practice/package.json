@@ -1,0 +1,15 @@
+{
+  "name": "restaurant-practice",
+  "version": "1.0.0",
+  "description": "Practice for Hot Restaurant Activity",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Marissa Pels",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3"
+  }
+}

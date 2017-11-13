@@ -1,0 +1,12 @@
+CREATE DATABASE chirpy;
+USE chirpy;
+
+CREATE TABLE `chirps` (
+
+	id int NOT NULL AUTO_INCREMENT,
+	author VARCHAR(255) NOT NULL,
+	chirp BOOLEAN DEFAULT false,
+	time TIMESTAMP,
+	PRIMARY KEY (id)
+
+);
